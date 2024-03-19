@@ -283,8 +283,17 @@ class IconViewerState extends State<IconViewer> with TickerProviderStateMixin {
     super.dispose();
   }
 
+  void updateClassVariable() {
+    _controller = widget.controller;
+    _width = widget.width;
+    _height = widget.height;
+    _colorize = widget.colorize;
+  }
+
   @override
   Widget build(BuildContext context) {
+    updateClassVariable();
+    
     var delegates = _colorize != null
         ? LottieDelegates(
             values: [
